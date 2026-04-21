@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>WearTech 2026 | Fitness Wearables Catalog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Compare the best fitness wearables of 2026 — Apple Watch, Whoop, Oura Ring, Garmin, and more. Search, filter, and find your perfect device."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,900;1,14..32,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- ===== HERO HEADER ===== -->
+    <header class="main-header">
+      <div class="header-glow"></div>
+      <div class="header-content">
+        <div class="header-eyebrow">2026 Edition</div>
+        <h1 class="title">WearTech Catalog</h1>
+        <p class="subtitle">
+          The definitive guide to fitness wearables — compare specs, battery,
+          and real yearly costs.
+        </p>
+        <div class="header-stats">
+          <div class="stat">
+            <span id="stat-count">12</span><small>Devices</small>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span id="brand-count">5</span><small>Brands</small>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat">
+            <span id="form-count">3</span><small>Form Factors</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===== STICKY CONTROLS ===== -->
+    <div class="controls-bar" id="controls-bar">
+      <div class="controls-inner">
+        <!-- Search -->
+        <div class="control-group search-group">
+          <label for="search-input">Search</label>
+          <div class="search-wrapper">
+            <span class="search-icon">⌕</span>
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Device or brand..."
+              aria-label="Search by device or brand"
+            />
+            <button id="search-btn">Search</button>
+          </div>
+        </div>
+
+        <!-- Form Factor Filter -->
+        <div class="control-group">
+          <label for="form-filter">Form Factor</label>
+          <select id="form-filter" aria-label="Filter by form factor">
+            <option value="All">All Types</option>
+            <option value="Watch">Watch</option>
+            <option value="Band">Band</option>
+            <option value="Ring">Ring</option>
+          </select>
+        </div>
+
+        <!-- Sort -->
+        <div class="control-group">
+          <label for="sort-select">Sort By</label>
+          <select id="sort-select" aria-label="Sort devices">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+            <option value="yearly-asc">Yearly Cost: Low → High</option>
+            <option value="yearly-desc">Yearly Cost: High → Low</option>
+            <option value="battery-desc">Best Battery Life</option>
+          </select>
+        </div>
+
+        <!-- Toggle: Long Battery Only -->
+        <div class="control-group toggle-group">
+          <label for="battery-toggle">Endurance Only</label>
+          <button
+            id="battery-toggle"
+            class="toggle-btn"
+            aria-pressed="false"
+            title="Show only devices with 48+ hours of battery"
+          >
+            <span class="toggle-icon">⚡</span>
+            <span class="toggle-label">48 h+</span>
+          </button>
+        </div>
+
+        <!-- Toggle: No Sub Only -->
+        <div class="control-group toggle-group">
+          <label for="sub-toggle">Subscription</label>
+          <button
+            id="sub-toggle"
+            class="toggle-btn"
+            aria-pressed="false"
+            title="Show only devices without a required monthly fee"
+          >
+            <span class="toggle-icon">🆓</span>
+            <span class="toggle-label">No Sub</span>
+          </button>
+        </div>
+
+        <!-- Reset -->
+        <div class="control-group reset-group">
+          <label>&nbsp;</label>
+          <button id="reset-btn" aria-label="Reset all filters">↺ Reset</button>
+        </div>
+      </div>
+      <div class="results-bar">
+        <p id="results-count" aria-live="polite"></p>
+        <p id="active-filters"></p>
+      </div>
+    </div>
+
+    <!-- ===== CATALOG GRID ===== -->
+    <main>
+      <div id="card-container"></div>
+
+      <!-- Hidden template card (required by starter code) -->
+      <div class="card" style="display: none">
+        <div class="card-content">
+          <h2>Device Name</h2>
+          <img src="" alt="Device" />
+          <ul>
+            <li>Spec 1</li>
+            <li>Spec 2</li>
+            <li>Spec 3</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <p class="footer-copy">
+        WearTech 2026 &mdash; SEA Stage 2 Data Catalog Project
+      </p>
+      <div class="footer-actions">
+        <button id="quote-btn" onclick="quoteAlert()">💬 Fun Fact</button>
+        <button id="remove-btn" onclick="removeLastCard()">
+          🗑 Remove Last
+        </button>
+      </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+  </body>
+</html>
