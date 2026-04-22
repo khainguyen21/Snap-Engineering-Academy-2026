@@ -142,7 +142,7 @@ const fitnessWearables = [
 
 
 /* =============================================================
-   2. HELPER — Calculate true 1-year cost of ownership
+   2. Calculate true 1-year cost of ownership
       Why: Some devices are "free" upfront but cost $30/mo.
       This function returns: devicePrice + (monthlyFee × 12)
    ============================================================= */
@@ -153,7 +153,7 @@ function getYearlyCost(item) {
 
 
 /* =============================================================
-   3. HELPER — Format battery life for display
+   3. Format battery life for display
       Converts hours to a human-readable string like "14 days"
    ============================================================= */
 
@@ -167,7 +167,7 @@ function formatBattery(hours) {
 
 
 /* =============================================================
-   4. HELPER — Return CSS class for battery level color coding
+   4. Return CSS class for battery level color coding
    ============================================================= */
 
 function batteryClass(hours) {
@@ -178,7 +178,7 @@ function batteryClass(hours) {
 
 
 /* =============================================================
-   5. RENDER — displayItems(itemsToDisplay)
+   5. displayItems(itemsToDisplay)
       This is the core function. It takes an array of device
       objects and builds HTML cards for each one inside the
       #card-container div.
@@ -265,7 +265,7 @@ function displayItems(itemsToDisplay) {
 
 
 /* =============================================================
-   6. OPERATION A — searchItems(query)
+   6. searchItems(query)
       Filters the catalog to only show items whose name OR brand
       contains the search query text (case-insensitive).
       Uses: .filter() and .includes() and .toLowerCase()
@@ -284,7 +284,7 @@ function searchItems(itemsArray, query) {
 
 
 /* =============================================================
-   7. OPERATION B — filterByFormFactor(formFactor)
+   7. filterByFormFactor(formFactor)
       Shows only devices that match a selected form factor,
       e.g., "Watch", "Band", or "Ring".
       Uses: .filter() with a strict equality check (===)
@@ -302,11 +302,11 @@ function filterByFormFactor(itemsArray, formFactor) {
 
 
 /* =============================================================
-   8. OPERATION C — sortItems(itemsArray, sortKey)
+   8. sortItems(itemsArray, sortKey)
       Sorts any array of items based on a key like "price" or
       "yearly cost". Returns a NEW sorted array without changing
       the original.
-      Uses: .slice() to copy, .sort() with a comparator function,
+      Uses: spread operator([...]) to copy, .sort() with a comparator function,
             and .map() to compute yearly cost for comparison.
    ============================================================= */
 
@@ -325,7 +325,7 @@ function sortItems(itemsArray, sortKey) {
 
 
 /* =============================================================
-   9. OPERATION D — filterLongBattery(itemsArray)
+   9. filterLongBattery(itemsArray)
       The "Endurance Filter" — shows only devices with 48+ hours
       of battery life. This helps travelers find gear they won't
       need to charge every single night.
@@ -338,7 +338,7 @@ function filterLongBattery(itemsArray) {
 
 
 /* =============================================================
-   10. COMBINED — applyAllFilters()
+   10. applyAllFilters()
        Reads the current state of every control (search input,
        form factor dropdown, sort select, battery toggle) and
        applies them one by one in order, then calls displayItems.
